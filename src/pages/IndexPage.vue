@@ -332,7 +332,7 @@
                   <strong>desviación estándar = Σ (x - x̄)² / n</strong>
                 </p>
                 <p class="text-body1">
-                  Donde <strong>x</strong> es cada dato del conjunto,{' '}
+                  Donde <strong>x</strong> es cada dato del conjunto,
                   <strong>x̄</strong> es la media y <strong>n</strong> es el
                   número de datos.
                 </p>
