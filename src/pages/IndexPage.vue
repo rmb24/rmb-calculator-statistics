@@ -18,7 +18,7 @@
             filled
             type="text"
             :rules="[validarDatos]"
-            clear-icon="close"
+            clear-icon="las la-times"
             clearable
           />
           <q-btn
@@ -30,14 +30,7 @@
           />
         </q-form>
       </q-card-section>
-    </q-card>
-    <!-- Tarjeta para mostrar el resultado de la media -->
-    <q-card
-      class="col-12 col-md-6 col-lg-4 q-mb-md q-mx-auto"
-      align="center"
-      color="secondary"
-      outlined
-    >
+      <q-separator inset />
       <q-card-section>
         <p class="text-h6">Resultado</p>
         <q-form>
@@ -48,6 +41,45 @@
             type="number"
             readonly
           />
+          <!-- Expansión para mostrar el procedimiento -->
+          <q-expansion-item
+            popup
+            class="q-mt-md"
+            icon="las la-info-circle"
+            label="Ver procedimiento"
+            expand-separator
+            dense
+            header-class="bg-primary text-white"
+            expand-icon-class="text-white"
+          >
+            <template v-slot:default>
+              <q-card-section>
+                <p class="text-h6">Procedimiento</p>
+                <p class="text-body1">
+                  La media aritmética es la suma de todos los datos dividido
+                  entre la cantidad de datos.
+                </p>
+                <p class="text-body1">
+                  <strong>media = (x1 + x2 + x3 + ... + xn) / n</strong>
+                </p>
+                <p class="text-body1">
+                  Donde <strong>x1, x2, x3, ... , xn</strong> son los datos y
+                  <strong>n</strong> es la cantidad de datos.
+                </p>
+
+                <p class="text-h6">Ejemplo:</p>
+                <p class="text-body1">
+                  <strong>media = (1 + 2 + 3 + 4 + 5) / 5</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>media = 15 / 5</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>media = 3</strong>
+                </p>
+              </q-card-section>
+            </template>
+          </q-expansion-item>
         </q-form>
       </q-card-section>
     </q-card>
@@ -69,7 +101,7 @@
             filled
             type="text"
             :rules="[validarDatos]"
-            clear-icon="close"
+            clear-icon="las la-times"
             clearable
           />
           <q-btn
@@ -81,18 +113,63 @@
           />
         </q-form>
       </q-card-section>
-    </q-card>
-    <!-- Tarjeta para mostrar el resultado de la moda -->
-    <q-card
-      class="col-12 col-md-6 col-lg-4 q-mb-md q-mx-auto"
-      align="center"
-      color="secondary"
-      outlined
-    >
+      <q-separator inset />
       <q-card-section>
         <p class="text-h6">Resultado</p>
         <q-form>
           <q-input v-model="moda" label="Moda" filled readonly />
+          <q-expansion-item
+            popup
+            class="q-mt-md"
+            icon="las la-info-circle"
+            label="Ver procedimiento"
+            expand-separator
+            dense
+            header-class="bg-primary text-white"
+            expand-icon-class="text-white"
+          >
+            <template v-slot:default>
+              <q-card-section>
+                <p class="text-h6">Procedimiento</p>
+                <p class="text-body1">
+                  La moda es el dato que más se repite en un conjunto de datos.
+                </p>
+                <p class="text-body1">
+                  <strong>moda = x</strong>
+                </p>
+                <p class="text-body1">
+                  Donde <strong>x</strong> es el dato que más se repite.
+                </p>
+
+                <p class="text-h6">Ejemplo 1:</p>
+                <p class="text-body1">
+                  <strong>moda = 2, 3</strong>
+                </p>
+                <p class="text-body1">
+                  En este caso hay dos modas, 2 y 3, ya que se repiten dos
+                  veces.
+                </p>
+
+                <p class="text-h6">Ejemplo 2:</p>
+                <p class="text-body1">
+                  <strong>moda = 1, 2, 3, 4, 5</strong>
+                </p>
+                <p class="text-body1">
+                  En este caso no hay moda, ya que todos los datos se repiten
+                  una vez.
+                </p>
+
+                <p class="text-h6">Ejemplo 3:</p>
+                <p class="text-body1">
+                  <strong>moda = 1, 2, 2, 3, 4, 5</strong>
+                </p>
+                <p class="text-body1">
+                  En este caso hay dos modas, 2 y 5, ya que se repiten dos
+                  veces.
+                </p>
+              </q-card-section>
+            </template>
+          </q-expansion-item>
         </q-form>
       </q-card-section>
     </q-card>
@@ -126,18 +203,70 @@
           />
         </q-form>
       </q-card-section>
-    </q-card>
-    <!-- Tarjeta para mostrar el resultado de la mediana -->
-    <q-card
-      class="col-12 col-md-6 col-lg-4 q-mb-md q-mx-auto"
-      align="center"
-      color="secondary"
-      outlined
-    >
+      <q-separator inset />
       <q-card-section>
         <p class="text-h6">Resultado</p>
         <q-form>
           <q-input v-model="mediana" label="Mediana" filled readonly />
+          <q-expansion-item
+            popup
+            class="q-mt-md"
+            icon="las la-info-circle"
+            label="Ver procedimiento"
+            expand-separator
+            dense
+            header-class="bg-primary text-white"
+            expand-icon-class="text-white"
+          >
+            <template v-slot:default>
+              <q-card-section>
+                <p class="text-h6">Procedimiento</p>
+                <p class="text-body1">
+                  La mediana es el dato que se encuentra en la mitad de un
+                  conjunto de datos.
+                </p>
+                <p class="text-body1">
+                  <strong>mediana = x</strong>
+                </p>
+                <p class="text-body1">
+                  Donde <strong>x</strong> es el dato que se encuentra en la
+                  mitad.
+                </p>
+
+                <p class="text-h6">Para calcular la mediana:</p>
+                <p class="text-body1">1. Ordenar los datos de menor a mayor.</p>
+                <p class="text-body1">
+                  2. Si el número de datos es impar, la mediana es el dato que
+                  se encuentra en la mitad.
+                </p>
+                <p class="text-body1">
+                  3. Si el número de datos es par, la mediana es el promedio de
+                  los dos datos que se encuentran en la mitad.
+                </p>
+
+                <p class="text-h6">Ejemplo 1:</p>
+                <p class="text-body1">
+                  <strong>mediana = 2, 3, 4, 5, 6</strong>
+                </p>
+                <p class="text-body1">
+                  En este caso el número de datos es impar, por lo tanto la
+                  mediana es el dato que se encuentra en la mitad, que es
+                  <strong>4</strong>.
+                </p>
+
+                <p class="text-h6">Ejemplo 2:</p>
+                <p class="text-body1">
+                  <strong>mediana = 2, 3, 4, 5, 6, 7</strong>
+                </p>
+                <p class="text-body1">
+                  En este caso el número de datos es par, por lo tanto la
+                  mediana es el promedio de los dos datos que se encuentran en
+                  la mitad, que es 4 y 5, por lo tanto la mediana es
+                  <strong>4.5</strong>.
+                </p>
+              </q-card-section>
+            </template>
+          </q-expansion-item>
         </q-form>
       </q-card-section>
     </q-card>
@@ -172,14 +301,7 @@
           />
         </q-form>
       </q-card-section>
-    </q-card>
-    <!-- Tarjeta para mostrar el resultado de la desviación estándar -->
-    <q-card
-      class="col-12 col-md-6 col-lg-4 q-mb-md q-mx-auto"
-      align="center"
-      color="secondary"
-      outlined
-    >
+      <q-separator inset />
       <q-card-section>
         <p class="text-h6">Resultado</p>
         <q-form>
@@ -189,6 +311,135 @@
             filled
             readonly
           />
+          <q-expansion-item
+            popup
+            class="q-mt-md"
+            icon="las la-info-circle"
+            label="Ver procedimiento"
+            expand-separator
+            dense
+            header-class="bg-primary text-white"
+            expand-icon-class="text-white"
+          >
+            <template v-slot:default>
+              <q-card-section>
+                <p class="text-h6">Procedimiento</p>
+                <p class="text-body1">
+                  La desviación estándar es una medida de dispersión que nos
+                  indica qué tan dispersos están los datos de un conjunto.
+                </p>
+                <p class="text-body1">
+                  <strong>desviación estándar = Σ (x - x̄)² / n</strong>
+                </p>
+                <p class="text-body1">
+                  Donde <strong>x</strong> es cada dato del conjunto,{' '}
+                  <strong>x̄</strong> es la media y <strong>n</strong> es el
+                  número de datos.
+                </p>
+
+                <p class="text-h6">Para calcular la desviación estándar:</p>
+                <p class="text-body1">1. Calcular la media de los datos.</p>
+                <p class="text-body1">
+                  2. Calcular la diferencia entre cada dato y la media.
+                </p>
+                <p class="text-body1">3. Elevar al cuadrado cada diferencia.</p>
+                <p class="text-body1">
+                  4. Sumar todos los resultados de los cuadrados.
+                </p>
+                <p class="text-body1">
+                  5. Dividir el resultado de la suma entre el número de datos.
+                </p>
+                <p class="text-body1">
+                  6. Calcular la raíz cuadrada del resultado de la división.
+                </p>
+
+                <p class="text-h6">Ejemplo:</p>
+                <p class="text-body1">
+                  <strong>desviación estándar = 3, 4, 5, 6, 7</strong>
+                </p>
+                <p class="text-body1">
+                  1. Calcular la media de los datos, que es
+                  <strong>5</strong>.
+                </p>
+                <p class="text-body1">
+                  2. Calcular la diferencia entre cada dato y la media.
+                </p>
+                <p class="text-body1">
+                  <strong>3 - 5 = -2</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>4 - 5 = -1</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>5 - 5 = 0</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>6 - 5 = 1</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>7 - 5 = 2</strong>
+                </p>
+                <p class="text-body1">3. Elevar al cuadrado cada diferencia.</p>
+                <p class="text-body1">
+                  <strong>-2² = 4</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>-1² = 1</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>0² = 0</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>1² = 1</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>2² = 4</strong>
+                </p>
+                <p class="text-body1">
+                  4. Sumar todos los resultados de los cuadrados.
+                </p>
+                <p class="text-body1">
+                  <strong>4 + 1 + 0 + 1 + 4 = 10</strong>
+                </p>
+                <p class="text-body1">
+                  5. Dividir el resultado de la suma entre el número de datos.
+                </p>
+                <p class="text-body1">
+                  <strong>10 / (5-1) = 2.5</strong>
+                </p>
+                <p class="text-body1">
+                  6. Calcular la raíz cuadrada del resultado de la división.
+                </p>
+                <p class="text-body1">
+                  <strong>√2.5 = 1.5811388300841898</strong>
+                </p>
+                <p class="text-body1">
+                  La desviación estándar es <strong>1.5811388300841898</strong>.
+                </p>
+                <p class="text-body1">
+                  <strong>Nota:</strong> Para calcular la desviación estándar de
+                  una muestra, es necesario tener en cuenta el número de datos
+                  de la misma. Si no se conoce este número, se recomienda
+                  utilizar la Corrección de Bessel, que consiste en restar 1 al
+                  número de datos.
+                  <br />
+                  <br />
+                  Por ejemplo, si se tienen 5 datos, se debe dividir entre 4
+                  para obtener la desviación estándar:
+                  <strong>desviación estándar = Σ (x - x̄)² / (n - 1)</strong>
+                  <br />
+                  <br />
+                  Si se conoce el número de datos, se debe dividir entre el
+                  mismo: <strong>desviación estándar = Σ (x - x̄)² / n</strong>
+                  <br />
+                  <br />
+                  Aplicando este procedimiento con el conjunto de datos [3, 4,
+                  5, 6, 7], se obtiene un resultado de
+                  <strong>1.4142135623730951</strong>.
+                </p>
+              </q-card-section>
+            </template>
+          </q-expansion-item>
         </q-form>
       </q-card-section>
     </q-card>
@@ -223,14 +474,7 @@
           />
         </q-form>
       </q-card-section>
-    </q-card>
-    <!-- Tarjeta para mostrar el resultado de la varianza -->
-    <q-card
-      class="col-12 col-md-6 col-lg-4 q-mb-md q-mx-auto"
-      align="center"
-      color="secondary"
-      outlined
-    >
+      <q-separator inset />
       <q-card-section>
         <p class="text-h6">Resultado</p>
         <q-form>
@@ -242,10 +486,102 @@
             type="text"
           />
         </q-form>
+        <q-expansion-item
+          popup
+          class="q-mt-md"
+          icon="las la-info-circle"
+          label="Ver procedimiento"
+          expand-separator
+          dense
+          header-class="bg-primary text-white"
+          expand-icon-class="text-white"
+        >
+          <template v-slot:default>
+            <q-card-section>
+              <p class="text-h6">Procedimiento</p>
+              <p class="text-body1">
+                La varianza es una medida de dispersión que indica qué tan lejos
+                están los datos de la media.
+              </p>
+              <p class="text-body1">1. Calcular la media de los datos.</p>
+              <p class="text-body1">
+                2. Calcular la diferencia entre cada dato y la media.
+              </p>
+              <p class="text-body1">3. Elevar al cuadrado cada diferencia.</p>
+              <p class="text-body1">
+                4. Sumar todos los resultados de los cuadrados.
+              </p>
+              <p class="text-body1">
+                5. Dividir el resultado de la suma entre el número de datos.
+              </p>
+              <p class="text-h6">Ejemplo:</p>
+              <p class="text-body1">
+                Calcular la varianza de los datos
+                <strong>3, 4, 5, 6, 7</strong>.
+              </p>
+              <p class="text-body1">1. Calcular la media de los datos.</p>
+              <p class="text-body1">
+                <strong>3 + 4 + 5 + 6 + 7 = 25</strong>
+              </p>
+              <p class="text-body1">
+                <strong>25 / 5 = 5</strong>
+              </p>
+              <p class="text-body1">La media es <strong>5</strong>.</p>
+              <p class="text-body1">
+                2. Calcular la diferencia entre cada dato y la media.
+              </p>
+              <p class="text-body1">
+                <strong>3 - 5 = -2</strong>
+              </p>
+              <p class="text-body1">
+                <strong>4 - 5 = -1</strong>
+              </p>
+              <p class="text-body1">
+                <strong>5 - 5 = 0</strong>
+              </p>
+              <p class="text-body1">
+                <strong>6 - 5 = 1</strong>
+              </p>
+              <p class="text-body1">
+                <strong>7 - 5 = 2</strong>
+              </p>
+              <p class="text-body1">3. Elevar al cuadrado cada diferencia.</p>
+              <p class="text-body1">
+                <strong>-2² = 4</strong>
+              </p>
+              <p class="text-body1">
+                <strong>-1² = 1</strong>
+              </p>
+              <p class="text-body1">
+                <strong>0² = 0</strong>
+              </p>
+              <p class="text-body1">
+                <strong>1² = 1</strong>
+              </p>
+              <p class="text-body1">
+                <strong>2² = 4</strong>
+              </p>
+              <p class="text-body1">
+                4. Sumar todos los resultados de los cuadrados.
+              </p>
+              <p class="text-body1">
+                <strong>4 + 1 + 0 + 1 + 4 = 10</strong>
+              </p>
+              <p class="text-body1">
+                5. Dividir el resultado de la suma entre el número de datos.
+              </p>
+              <p class="text-body1">
+                <strong>10 / 5 = 2</strong>
+              </p>
+              <p class="text-body1">La varianza es <strong>2</strong>.</p>
+            </q-card-section>
+          </template>
+        </q-expansion-item>
       </q-card-section>
     </q-card>
 
     <!-- Footer simple -->
+    <q-separator inset />
     <div class="q-pa-md text-center">
       <p>
         Hecho con ❤️ por
@@ -262,15 +598,6 @@ export default defineComponent({
   name: 'IndexPage',
 
   setup() {
-    // Tabs
-    const tabs = ref([
-      { label: 'Media', icon: 'mdi-calculator' },
-      { label: 'Mediana', icon: 'mdi-calculator' },
-      { label: 'Moda', icon: 'mdi-calculator' },
-      { label: 'Desviación estándar', icon: 'mdi-calculator' },
-      { label: 'Varianza', icon: 'mdi-calculator' },
-    ]);
-
     // Variables
     const datos = ref('');
     const media = ref(0);
@@ -340,26 +667,36 @@ export default defineComponent({
     };
 
     // Funciones - Desviación estándar
+    const tipoMuestra = ref('');
     const datosDesviacion = ref('');
     const desviacion = ref(0);
 
     const calcularDesviacion = () => {
-      if (datosDesviacion.value) {
-        const datosArray = datosDesviacion.value.split(',');
-        const datosNumber = datosArray.map((dato) => Number(dato));
-        const sumaDatos = datosNumber.reduce((a, b) => a + b);
-        const media = sumaDatos / datosNumber.length;
-        const datosRestaMedia = datosNumber.map((dato) => dato - media);
-        const datosRestaMediaCuadrado = datosRestaMedia.map(
-          (dato) => dato * dato
-        );
-        const sumaDatosRestaMediaCuadrado = datosRestaMediaCuadrado.reduce(
-          (a, b) => a + b
-        );
-        const desviacionEstandar = Math.sqrt(
-          sumaDatosRestaMediaCuadrado / (datosNumber.length - 1)
-        );
-        desviacion.value = desviacionEstandar;
+      try {
+        if (datosDesviacion.value) {
+          const datosArray = datosDesviacion.value.split(',');
+          const datosNumber = datosArray.map((dato) => Number(dato));
+          const sumaDatos = datosNumber.reduce((a, b) => a + b);
+          const media = sumaDatos / datosNumber.length;
+          const datosRestaMedia = datosNumber.map((dato) => dato - media);
+          const datosRestaMediaCuadrado = datosRestaMedia.map(
+            (dato) => dato * dato
+          );
+          const sumaDatosRestaMediaCuadrado = datosRestaMediaCuadrado.reduce(
+            (a, b) => a + b
+          );
+          if (datosNumber.length > 1) {
+            const desviacionEstandar =
+              Math.sqrt(
+                sumaDatosRestaMediaCuadrado / (datosNumber.length - 1)
+              ) || 0;
+            desviacion.value = desviacionEstandar;
+          } else {
+            desviacion.value = 0;
+          }
+        }
+      } catch (error) {
+        console.log(error);
       }
     };
 
@@ -390,7 +727,6 @@ export default defineComponent({
     };
 
     return {
-      tabs,
       // Variables
       datos,
       media,

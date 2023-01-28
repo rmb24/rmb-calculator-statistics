@@ -9,9 +9,11 @@ const routes: RouteRecordRaw[] = [
 
   // Always leave this as last one,
   // but you can also remove it
+
+  // Redirect to / page, if no match found
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
   },
 ];
 
