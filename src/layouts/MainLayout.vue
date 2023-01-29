@@ -7,7 +7,7 @@
           <span class="text-h6">RMB - Calculadora</span>
         </q-toolbar-title>
 
-        <div>Version 1.3.0</div>
+        <div>Version 1.4.5</div>
       </q-toolbar>
     </q-header>
 

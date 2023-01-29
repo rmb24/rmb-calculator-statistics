@@ -78,6 +78,28 @@
                   <strong>media = 3</strong>
                 </p>
               </q-card-section>
+              <q-separator inset />
+              <q-card-section
+                class="q-mt-md bg-primary text-white"
+                v-if="datos.length > 0"
+              >
+                <p class="text-h6">En este caso:</p>
+                <p class="text-body1">
+                  <strong
+                    >media = ({{ datos.split(',').join(' + ') }}) /
+                    {{ datos.split(',').length }}</strong
+                  >
+                </p>
+                <p class="text-body1">
+                  <strong
+                    >media = {{ sumaDatos }} /
+                    {{ datos.split(',').length }}</strong
+                  >
+                </p>
+                <p class="text-body1">
+                  <strong>media = {{ media }}</strong>
+                </p>
+              </q-card-section>
             </template>
           </q-expansion-item>
         </q-form>
@@ -166,6 +188,16 @@
                 <p class="text-body1">
                   En este caso hay dos modas, 2 y 5, ya que se repiten dos
                   veces.
+                </p>
+              </q-card-section>
+              <q-separator inset />
+              <q-card-section
+                class="q-mt-md bg-primary text-white"
+                v-if="datosModa.length > 0"
+              >
+                <p class="text-h6">En este caso:</p>
+                <p class="text-body1">
+                  <strong>moda = {{ moda }}</strong>
                 </p>
               </q-card-section>
             </template>
@@ -263,6 +295,19 @@
                   mediana es el promedio de los dos datos que se encuentran en
                   la mitad, que es 4 y 5, por lo tanto la mediana es
                   <strong>4.5</strong>.
+                </p>
+              </q-card-section>
+              <q-separator inset />
+              <q-card-section
+                class="q-mt-md bg-primary text-white"
+                v-if="datosMediana.length > 0"
+              >
+                <p class="text-h6">En este caso:</p>
+                <p class="text-body1">
+                  <strong>mediana = {{ datosMediana.split(',') }}</strong>
+                </p>
+                <p class="text-body1">
+                  <strong>mediana = {{ mediana }}</strong>
                 </p>
               </q-card-section>
             </template>
@@ -592,7 +637,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
@@ -601,6 +646,7 @@ export default defineComponent({
     // Variables
     const datos = ref('');
     const media = ref(0);
+    const sumaDatos = ref(0);
 
     // Funciones - Media
     const validarDatos = (value: string) => {
@@ -612,9 +658,13 @@ export default defineComponent({
     const calcularMedia = () => {
       if (datos.value) {
         const datosArray = datos.value.split(',');
-        const datosNumber = datosArray.map((dato) => Number(dato));
-        const sumaDatos = datosNumber.reduce((a, b) => a + b);
-        media.value = sumaDatos / datosNumber.length;
+        const datosNumber = datosArray.map((dato) => Number(dato)); // Convierte los datos a números
+        const sumaDatosComputed = computed(() => {
+          // Calcula la suma de los datos ingresados y la devuelve como computed para que se actualice automáticamente
+          return datosNumber.reduce((a, b) => a + b, 0);
+        });
+        sumaDatos.value = sumaDatosComputed.value;
+        media.value = sumaDatosComputed.value / datosNumber.length; // Calcula la media de los datos ingresados
       }
     };
 
@@ -667,7 +717,6 @@ export default defineComponent({
     };
 
     // Funciones - Desviación estándar
-    const tipoMuestra = ref('');
     const datosDesviacion = ref('');
     const desviacion = ref(0);
 
@@ -730,6 +779,7 @@ export default defineComponent({
       // Variables
       datos,
       media,
+      sumaDatos,
       // Funciones - Media
       validarDatos,
       calcularMedia,
