@@ -1,5 +1,45 @@
 <template>
   <q-page class="q-pa-md">
+    <!-- Navegacion con id para poder navegar a la seccion -->
+    <q-btn-group
+      unelevated
+      outline
+      rounded
+      class="q-mb-md"
+      align="center"
+      spread
+    >
+      <q-btn
+        color="primary"
+        label="Media"
+        @click="navigateToElement('media')"
+        icon="las la-calculator"
+      />
+      <q-btn
+        color="primary"
+        label="Moda"
+        @click="navigateToElement('moda')"
+        icon="las la-calculator"
+      />
+      <q-btn
+        color="primary"
+        label="Mediana"
+        @click="navigateToElement('mediana')"
+        icon="las la-calculator"
+      />
+      <q-btn
+        color="primary"
+        label="Desviación estándar"
+        @click="navigateToElement('desviacion')"
+        icon="las la-calculator"
+      />
+      <q-btn
+        color="primary"
+        label="Varianza"
+        @click="navigateToElement('varianza')"
+        icon="las la-calculator"
+      />
+    </q-btn-group>
     <!-- Tarjeta para ingresar los datos a calcular de la media -->
     <q-card
       class="q-col-6 q-mb-md q-mt-md q-mx-auto"
@@ -7,6 +47,7 @@
       color="secondary"
       elevated
       padding="20px"
+      id="media"
     >
       <q-card-section>
         <p class="text-h6">Calcular media</p>
@@ -112,6 +153,7 @@
       color="secondary"
       elevated
       padding="20px"
+      id="moda"
     >
       <q-card-section>
         <p class="text-h6">Calcular moda</p>
@@ -212,6 +254,7 @@
       color="secondary"
       elevated
       padding="20px"
+      id="mediana"
     >
       <q-card-section>
         <p class="text-h6">Calcular mediana</p>
@@ -323,6 +366,7 @@
       color="secondary"
       elevated
       padding="20px"
+      id="desviacion"
     >
       <q-card-section>
         <p class="text-h6">Calcular desviación estándar</p>
@@ -496,6 +540,7 @@
       color="secondary"
       elevated
       padding="20px"
+      id="varianza"
     >
       <q-card-section>
         <p class="text-h6">Calcular varianza</p>
@@ -643,6 +688,12 @@ export default defineComponent({
   name: 'IndexPage',
 
   setup() {
+    const navigateToElement = (element: string) => {
+      const el = document.getElementById(element);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
     // Variables
     const datos = ref('');
     const media = ref(0);
@@ -776,6 +827,7 @@ export default defineComponent({
     };
 
     return {
+      navigateToElement,
       // Variables
       datos,
       media,
