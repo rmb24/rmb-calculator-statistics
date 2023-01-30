@@ -225,11 +225,16 @@
 
                 <p class="text-h6">Ejemplo 3:</p>
                 <p class="text-body1">
-                  <strong>moda = 1, 2, 2, 3, 4, 5</strong>
+                  <strong>moda = 1, 2, 2, 3, 4, 5, 5</strong>
                 </p>
                 <p class="text-body1">
                   En este caso hay dos modas, 2 y 5, ya que se repiten dos
                   veces.
+                </p>
+                <p class="text-body1">
+                  <strong>Nota:</strong> Si hay dos o más modas, se puede tomar
+                  la que más se repita. En caso de que se repitan la misma
+                  cantidad de veces, se puede tomar cualquiera de ellas.
                 </p>
               </q-card-section>
               <q-separator inset />
