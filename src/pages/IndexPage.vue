@@ -1,5 +1,17 @@
 <template>
   <q-page class="q-pa-md">
+    <!--Ir a la pagina de datos agrupados router-link-->
+    <q-btn
+      color="primary"
+      label="Ir a datos agrupados"
+      icon="las la-table"
+      to="/datos-agrupados"
+      class="q-mb-md q-mt-md"
+    >
+      <!-- Mostrar la nueva funcion de datos agrupados -->
+      <q-badge floating color="secondary" label="Nuevo" />
+    </q-btn>
+
     <!-- Navegacion con id para poder navegar a la seccion -->
     <q-btn-group
       unelevated
@@ -40,6 +52,7 @@
         icon="las la-calculator"
       />
     </q-btn-group>
+
     <!-- Tarjeta para ingresar los datos a calcular de la media -->
     <q-card
       class="q-col-6 q-mb-md q-mt-md q-mx-auto"
@@ -706,9 +719,25 @@ export default defineComponent({
 
     // Funciones - Media
     const validarDatos = (value: string) => {
-      const datos = value.split(',');
-      const datosValidos = datos.every((dato) => !isNaN(Number(dato)));
-      return datosValidos || 'Ingrese datos válidos';
+      if (value === '') {
+        return 'Este campo es obligatorio';
+      }
+      if (value.includes(',')) {
+        const datos = value.split(',');
+        for (let i = 0; i < datos.length; i++) {
+          if (datos[i] === '') {
+            return 'Debe haber un número después de la coma';
+          }
+          if (isNaN(Number(datos[i]))) {
+            return 'Solo debe haber números y comas';
+          }
+        }
+      } else {
+        if (isNaN(Number(value))) {
+          return 'Solo debe haber números y comas';
+        }
+      }
+      return true;
     };
 
     const calcularMedia = () => {
@@ -861,9 +890,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-a {
-  color: #1f8a70;
-  text-decoration: none;
-}
-</style>
+<style></style>
