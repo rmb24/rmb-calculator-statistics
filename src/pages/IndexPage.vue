@@ -521,7 +521,8 @@
                   <strong>√2.5 = 1.5811388300841898</strong>
                 </p>
                 <p class="text-body1">
-                  La desviación estándar es <strong>1.5811388300841898</strong>.
+                  La desviación estándar es
+                  <strong>1.5811388300841898</strong>.
                 </p>
                 <p class="text-body1">
                   <strong>Nota:</strong> Para calcular la desviación estándar de
@@ -537,7 +538,8 @@
                   <br />
                   <br />
                   Si se conoce el número de datos, se debe dividir entre el
-                  mismo: <strong>desviación estándar = Σ (x - x̄)² / n</strong>
+                  mismo:
+                  <strong>desviación estándar = Σ (x - x̄)² / n</strong>
                   <br />
                   <br />
                   Aplicando este procedimiento con el conjunto de datos [3, 4,
@@ -687,7 +689,6 @@
         </q-expansion-item>
       </q-card-section>
     </q-card>
-
     <!-- Footer simple -->
     <q-separator inset />
     <div class="q-pa-md text-center">
@@ -706,6 +707,8 @@ export default defineComponent({
   name: 'IndexPage',
 
   setup() {
+    // loadings
+    const loading = ref(false);
     const navigateToElement = (element: string) => {
       const el = document.getElementById(element);
       if (el) {
@@ -861,6 +864,7 @@ export default defineComponent({
     };
 
     return {
+      loading,
       navigateToElement,
       // Variables
       datos,
